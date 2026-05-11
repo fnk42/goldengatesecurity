@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Gate Estate — Security Services Bid Form</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D48B;
+    --gold-dark: #9A7B2E;
+    --charcoal: #1E1E1E;
+    --slate: #2C3E50;
+    --off-white: #FAFAF7;
+    --cream: #F5F0E8;
+    --border: #D4CBBA;
+    --text: #2C2C2C;
+    --text-muted: #6B6B6B;
+    --red: #C0392B;
+    --green: #27AE60;
+    --section-bg: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--charcoal);
+    color: white;
+    padding: 40px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 80px);
+  }
+  .header-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .header .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .gold-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 16px auto;
+  }
+
+  .form-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  .info-callout {
+    background: #FFF8E7;
+    border: 1px solid #E8D48B;
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .info-callout strong { color: var(--gold-dark); }
+  .info-callout .callout-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .progress-bar {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+  }
+  .progress-bar .label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .progress-track {
+    height: 6px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+  .progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .progress-steps span.active { color: var(--gold-dark); font-weight: 600; }
+
+  .section {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--charcoal), var(--slate));
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .section-header:hover { background: linear-gradient(135deg, #252525, #34495E); }
+  .section-number {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    color: var(--charcoal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    flex-grow: 1;
+  }
+  .section-toggle {
+    font-size: 20px;
+    transition: transform 0.3s;
+    color: var(--gold-light);
+  }
+  .section-toggle.collapsed { transform: rotate(-90deg); }
+  .section-body { padding: 24px; }
+  .section-body.hidden { display: none; }
+
+  .field { margin-bottom: 20px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .field label .required { color: var(--red); margin-left: 2px; }
+  .field .hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="url"],
+  input[type="date"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--off-white);
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  }
+  textarea { resize: vertical; min-height: 90px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) {
+    .row { grid-template-columns: 1fr; }
+  }
+
+  .field-group-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate);
+    margin: 24px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .field-group-label:first-child { margin-top: 0; }
+
+  .check-group { display: flex; flex-direction: column; gap: 8px; }
+  .check-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .check-group label:hover { background: var(--cream); }
+  .check-group input[type="checkbox"],
+  .check-group input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--gold-dark);
+    flex-shrink: 0;
+  }
+
+  .pricing-table, .deploy-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .pricing-table th, .deploy-table th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--cream);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border);
+  }
+  .pricing-table td, .deploy-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .pricing-table input, .deploy-table input {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .pricing-table .line-label, .deploy-table .line-label {
+    font-weight: 500;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+
+  .estate-info-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .estate-info-box strong { color: var(--slate); }
+
+  .upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .upload-area:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.04);
+  }
+  .upload-area .icon { font-size: 28px; margin-bottom: 6px; }
+
+  .submit-section {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .submit-section .note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 48px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+  }
+  .btn-submit:active { transform: translateY(0); }
+
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media print {
+    .header { padding: 20px; }
+    .section-header { cursor: default; }
+    .section-body.hidden { display: block !important; }
+    .btn-submit, .progress-bar { display: none; }
+    .section { break-inside: avoid; }
+    .info-callout { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-content">
+    <div class="badge">Request for Proposal</div>
+    <h1>Golden Gate Estate</h1>
+    <div class="gold-rule"></div>
+    <h1 style="font-size:22px; margin-bottom:12px;">Security Services Bid Evaluation Form</h1>
+    <p>Please complete all sections thoroughly. Incomplete submissions may not be considered. All information provided will be treated as confidential.</p>
+    <div style="margin-top:20px; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); border-radius:6px; padding:16px 20px; text-align:left; font-size:13px; line-height:1.7;">
+      <strong style="color:var(--gold-light);">How to Submit:</strong><br>
+      1. Complete this form in your browser<br>
+      2. Click <strong>"Print / Save as PDF"</strong> at the bottom of the form<br>
+      3. Email the PDF together with all supporting documents to:<br>
+      <strong style="color:var(--gold-light); font-size:15px;">felix.njenga@gmail.com</strong> &amp; <strong style="color:var(--gold-light); font-size:15px;">e.liberatus@gmail.com</strong><br>
+      <span style="color:rgba(255,255,255,0.5);">Send to BOTH addresses. Subject line: Security Services Bid — [Your Company Name]</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-container">
+
+  <!-- IMPORTANT NOTICES -->
+  <div class="info-callout">
+    <div class="callout-title">⚠ Important — Please Read Before Completing</div>
+    <strong>No site visits at this stage.</strong> This bid is to be completed based solely on the estate description provided in Section 2 below. Shortlisted bidders may be invited for a guided site assessment at a later stage. Please do not visit the estate or approach existing security personnel.<br><br>
+    <strong>Confidentiality.</strong> The estate layout, court details, and resident information provided in this form are confidential. They are shared exclusively for the purpose of preparing your bid and must not be disclosed to any third party.<br><br>
+    <strong>Phase 1 Scope.</strong> This bid covers Phase 1 of the estate's security consolidation. Phase 1 encompasses 4 residential courts, the main gate, shared estate roads, and common areas. Additional courts may be incorporated in subsequent phases, and the appointed provider will have an opportunity to propose expanded coverage at that time.
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-bar">
+    <div class="label">Completion Progress</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-steps">
+      <span class="active">Company</span>
+      <span>Experience</span>
+      <span>Deployment</span>
+      <span>Personnel</span>
+      <span>Pricing</span>
+      <span>Compliance</span>
+      <span>Terms</span>
+    </div>
+  </div>
+
+  <!-- SECTION 1: COMPANY INFORMATION -->
+  <div class="section" data-section="1">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">1</div>
+      <div class="section-title">Company Information</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="row">
+        <div class="field">
+          <label>Registered Company Name <span class="required">*</span></label>
+          <input type="text" placeholder="Full legal name as registered">
+        </div>
+        <div class="field">
+          <label>Trading As (if different)</label>
+          <input type="text" placeholder="Trading / brand name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Company Registration Number <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. PVT-12345678">
+        </div>
+        <div class="field">
+          <label>KRA PIN <span class="required">*</span></label>
+          <input type="text" placeholder="Tax PIN">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Year Established <span class="required">*</span></label>
+          <input type="number" placeholder="e.g. 2010" min="1950" max="2026">
+        </div>
+        <div class="field">
+          <label>Total Number of Employees <span class="required">*</span></label>
+          <input type="number" placeholder="e.g. 150">
+        </div>
+      </div>
+      <div class="field">
+        <label>Physical Address / Head Office <span class="required">*</span></label>
+        <input type="text" placeholder="Full address including city and postal code">
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Primary Contact Person <span class="required">*</span></label>
+          <input type="text" placeholder="Full name and title">
+        </div>
+        <div class="field">
+          <label>Contact Phone <span class="required">*</span></label>
+          <input type="tel" placeholder="+254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Email Address <span class="required">*</span></label>
+          <input type="email" placeholder="official@company.co.ke">
+        </div>
+        <div class="field">
+          <label>Website</label>
+          <input type="url" placeholder="https://www.company.co.ke">
+        </div>
+      </div>
+      <div class="field">
+        <label>PSRA Licence Number <span class="required">*</span></label>
+        <input type="text" placeholder="Private Security Regulatory Authority licence number">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: ESTATE DESCRIPTION -->
+  <div class="section" data-section="2">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">2</div>
+      <div class="section-title">Estate Description — For Bid Preparation</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="estate-info-box">
+        <strong>This section is provided for your reference only. Do not edit — use this information to inform your proposal in the sections that follow.</strong>
+      </div>
+      <div class="estate-info-box">
+        <strong>Estate Name:</strong> Golden Gate Estate<br>
+        <strong>Location:</strong> South B, Nairobi, Kenya (approximately 3–5 km south-east of Nairobi CBD)<br>
+        <strong>Type:</strong> Gated residential estate comprising maisonettes arranged in separate courts<br>
+        <strong>Phase 1 Scope (this bid):</strong> 4 residential courts, the main gate, shared estate roads, and common areas<br>
+        <strong>Approximate Unit Count (Phase 1):</strong> To be confirmed at site visit stage<br><br>
+
+        <strong>Access &amp; Layout:</strong><br>
+        — One main vehicle and pedestrian gate serving as the primary entry/exit point<br>
+        — Multiple feeder streets adjoin the estate perimeter, creating secondary access challenges<br>
+        — Shared internal estate roads connect the courts<br>
+        — Communal parking areas, open green spaces, and a field within the estate<br>
+        — A school is located adjacent to the estate; pupils have been observed using the estate as a shortcut<br><br>
+
+        <strong>Known Security Challenges:</strong><br>
+        — No estate-wide CCTV coverage (one court has its own CCTV; others do not)<br>
+        — Inconsistent perimeter and road lighting across courts<br>
+        — No formal visitor management system or visitor register at the main gate<br>
+        — No resident vehicle identification scheme (stickers or tags); resident and non-resident vehicles are indistinguishable<br>
+        — No formal policy governing contractors, domestic workers, or service provider access<br>
+        — Boda boda and commercial vehicle congestion at and around the main gate<br>
+        — Unauthorised persons and vehicles passing through the estate unchallenged<br>
+        — A visitor curfew (2200 hrs) exists but is not consistently enforced<br>
+        — No existing radio communication infrastructure for security coordination<br><br>
+
+        <strong>Note:</strong> Specific court names, internal layouts, and resident numbers are withheld at this stage. Shortlisted bidders will receive a detailed site brief and guided walk-through before final proposals are requested.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: EXPERIENCE & TRACK RECORD -->
+  <div class="section" data-section="3">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">3</div>
+      <div class="section-title">Experience &amp; Track Record</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>How many years has your company provided residential estate security? <span class="required">*</span></label>
+        <input type="number" placeholder="Years of estate security experience" min="0">
+      </div>
+      <div class="field">
+        <label>How many residential estates or gated communities do you currently serve? <span class="required">*</span></label>
+        <input type="number" placeholder="e.g. 8" min="0">
+      </div>
+
+      <div class="field-group-label">Reference Client 1 <span style="color:var(--red)">*</span></div>
+      <div class="row">
+        <div class="field">
+          <label>Client / Estate Name</label>
+          <input type="text" placeholder="e.g. Runda Estate">
+        </div>
+        <div class="field">
+          <label>Contact Person, Title &amp; Phone</label>
+          <input type="text" placeholder="Name — Title — +254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Contract Duration</label>
+          <input type="text" placeholder="e.g. Jan 2020 – Present">
+        </div>
+        <div class="field">
+          <label>Number of Guards Deployed</label>
+          <input type="number" placeholder="e.g. 30">
+        </div>
+      </div>
+      <div class="field">
+        <label>Brief Description of Scope</label>
+        <textarea placeholder="Services provided: manned guarding, patrols, access control, CCTV monitoring, patrol vehicles, etc."></textarea>
+      </div>
+
+      <div class="field-group-label">Reference Client 2 <span style="color:var(--red)">*</span></div>
+      <div class="row">
+        <div class="field">
+          <label>Client / Estate Name</label>
+          <input type="text" placeholder="e.g. Karen Plains Estate">
+        </div>
+        <div class="field">
+          <label>Contact Person, Title &amp; Phone</label>
+          <input type="text" placeholder="Name — Title — +254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Contract Duration</label>
+          <input type="text" placeholder="e.g. Mar 2018 – Dec 2023">
+        </div>
+        <div class="field">
+          <label>Number of Guards Deployed</label>
+          <input type="number" placeholder="e.g. 25">
+        </div>
+      </div>
+      <div class="field">
+        <label>Brief Description of Scope</label>
+        <textarea placeholder="Services provided."></textarea>
+      </div>
+
+      <div class="field-group-label">Reference Client 3 (optional)</div>
+      <div class="row">
+        <div class="field">
+          <label>Client / Estate Name</label>
+          <input type="text" placeholder="Optional third reference">
+        </div>
+        <div class="field">
+          <label>Contact Person, Title &amp; Phone</label>
+          <input type="text" placeholder="Name — Title — +254 7XX XXX XXX">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Contract Duration</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field">
+          <label>Number of Guards Deployed</label>
+          <input type="number" placeholder="">
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:20px">
+        <label>Has any client terminated your contract in the past 5 years? <span class="required">*</span></label>
+        <div class="hint">If yes, provide the client name, year, and the reason for termination.</div>
+        <textarea placeholder="Yes / No — provide details if applicable."></textarea>
+      </div>
+      <div class="field">
+        <label>Industry memberships, certifications, and awards</label>
+        <div class="hint">e.g. KSIA membership, ISO 18788 / ISO 9001, SIRA accreditation, etc.</div>
+        <textarea placeholder="List all relevant certifications and memberships."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PROPOSED DEPLOYMENT & OPERATIONS -->
+  <div class="section" data-section="4">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">4</div>
+      <div class="section-title">Proposed Deployment &amp; Operations</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="estate-info-box">
+        <strong>Instructions:</strong> Based on the estate description in Section 2, propose your guard deployment for Phase 1 (4 courts, main gate, estate roads, and common areas). We require a <strong>minimum of 20 guards</strong>. Use the table below to show how you would distribute personnel across posts and shifts.
+      </div>
+
+      <div class="field-group-label">Guard Deployment Plan</div>
+      <div class="row">
+        <div class="field">
+          <label>Total Guards Proposed <span class="required">*</span></label>
+          <div class="hint">Minimum 20 guards.</div>
+          <input type="number" placeholder="e.g. 22" min="20">
+        </div>
+        <div class="field">
+          <label>Proposed Shift Structure <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>12-hour shifts (Day / Night)</option>
+            <option>8-hour shifts (3 rotations)</option>
+            <option>Other (describe below)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Post-by-Post Deployment Table <span class="required">*</span></label>
+        <div class="hint">Complete the table below. Add or amend rows as needed in your PDF submission. Courts are labelled generically as court names are withheld at this stage.</div>
+      </div>
+      <table class="deploy-table">
+        <thead>
+          <tr>
+            <th>Post / Location</th>
+            <th style="width:80px">Day Shift</th>
+            <th style="width:80px">Night Shift</th>
+            <th style="width:80px">Total</th>
+            <th>Notes / Rationale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="line-label">Main Gate</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder="Primary entry/exit point"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Court A</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Court B</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Court C</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Court D</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Estate Roads / Roving Patrol</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Common Areas / Field</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr>
+            <td class="line-label">Other (specify)</td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="number" placeholder="0" min="0"></td>
+            <td><input type="text" placeholder=""></td>
+          </tr>
+          <tr style="background:var(--cream)">
+            <td class="line-label"><strong>TOTAL</strong></td>
+            <td><input type="number" placeholder="0" min="0" style="font-weight:700"></td>
+            <td><input type="number" placeholder="0" min="0" style="font-weight:700"></td>
+            <td><input type="number" placeholder="0" min="0" style="font-weight:700"></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="field" style="margin-top:20px">
+        <label>Supervisor-to-Guard Ratio <span class="required">*</span></label>
+        <input type="text" placeholder="e.g. 1 supervisor per 10 guards">
+      </div>
+      <div class="field">
+        <label>Describe your supervision and management structure for this contract <span class="required">*</span></label>
+        <div class="hint">Include: site supervisor frequency, operations manager involvement, control room support, escalation chain.</div>
+        <textarea rows="4" placeholder="How will the estate be supervised day-to-day? Who does the estate management committee contact, and how quickly?"></textarea>
+      </div>
+
+      <div class="field-group-label">Relief &amp; Standby Cover</div>
+      <div class="row">
+        <div class="field">
+          <label>Dedicated relief/standby guards allocated to this contract <span class="required">*</span></label>
+          <input type="number" placeholder="e.g. 3" min="0">
+        </div>
+        <div class="field">
+          <label>Maximum time to replace an absent guard <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. 2 hours">
+        </div>
+      </div>
+      <div class="field">
+        <label>Explain your process for covering absences (illness, leave, resignation)</label>
+        <textarea placeholder="How do you ensure posts are never left unmanned?"></textarea>
+      </div>
+
+      <div class="field-group-label">Patrol Vehicle (Mandatory)</div>
+      <div class="estate-info-box">
+        <strong>Requirement:</strong> A minimum of one (1) dedicated patrol vehicle must be included in your bid. Bids that do not include a patrol vehicle will not be considered.
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Number of Patrol Vehicles Proposed <span class="required">*</span></label>
+          <input type="number" placeholder="Minimum 1" min="1">
+        </div>
+        <div class="field">
+          <label>Dedication Level <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Dedicated exclusively to Golden Gate Estate</option>
+            <option>Shared with nearby contracts (specify below)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Vehicle Make, Model &amp; Year <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. Toyota Hilux 2022">
+        </div>
+        <div class="field">
+          <label>Patrol Hours <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. 24/7 or 6 PM – 6 AM">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Branded with company livery &amp; emergency lights?</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — fully branded with emergency lights</option>
+            <option>Branded only (no emergency lights)</option>
+            <option>No branding or lights</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Fuel &amp; maintenance included in monthly fee? <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — fully included</option>
+            <option>Fuel included; maintenance excluded</option>
+            <option>Neither included (billed separately)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-group-label">Threat Assessment &amp; Proposed Mitigations</div>
+      <div class="field">
+        <label>Based on the estate description in Section 2, describe the key security threats you have identified and how your service addresses each one <span class="required">*</span></label>
+        <div class="hint">This is your opportunity to demonstrate your understanding of the estate's challenges — even without a physical site visit. We expect bidders to address: access control, visitor management, vehicle identification, perimeter integrity, boda boda/vendor management, curfew enforcement, and coordination with police.</div>
+        <textarea rows="8" placeholder="List each threat/challenge, its risk level, and the specific mitigation your service provides."></textarea>
+      </div>
+
+      <div class="field-group-label">Equipment &amp; Technology</div>
+      <div class="field">
+        <label>Equipment provided to deployed guards <span class="required">*</span></label>
+        <div class="check-group">
+          <label><input type="checkbox"> Uniforms (with seasonal variations)</label>
+          <label><input type="checkbox"> Two-way VHF radios / walkie-talkies</label>
+          <label><input type="checkbox"> Torches / flashlights</label>
+          <label><input type="checkbox"> Rain gear &amp; cold-weather kit</label>
+          <label><input type="checkbox"> Batons / non-lethal deterrents</label>
+          <label><input type="checkbox"> Guard tour patrol (GTP) clocking system</label>
+          <label><input type="checkbox"> Body cameras</label>
+          <label><input type="checkbox"> Metal detectors / screening equipment</label>
+          <label><input type="checkbox"> First aid kits</label>
+          <label><input type="checkbox"> Occurrence books at each post</label>
+          <label><input type="checkbox"> Reflective / high-visibility gear for gate personnel</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Digital reporting or guard management platform</label>
+        <div class="hint">e.g. mobile apps for incident reports, GPS tracking, electronic log books, client-facing dashboard</div>
+        <textarea placeholder="Describe any technology platforms and whether the estate management committee would have access to reports or a real-time dashboard."></textarea>
+      </div>
+
+      <div class="field-group-label">Emergency Response</div>
+      <div class="row">
+        <div class="field">
+          <label>Average emergency response time from nearest base <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. 15 minutes">
+        </div>
+        <div class="field">
+          <label>Location of nearest control room / operations base</label>
+          <input type="text" placeholder="e.g. Industrial Area, Nairobi">
+        </div>
+      </div>
+      <div class="field">
+        <label>Describe your escalation procedure when a guard raises an alarm <span class="required">*</span></label>
+        <div class="hint">Detail the chain of command: guard → supervisor → control room → backup → police → client notification.</div>
+        <textarea rows="4" placeholder="What happens step by step when an incident is reported?"></textarea>
+      </div>
+      <div class="field">
+        <label>Do you have an armed response unit? <span class="required">*</span></label>
+        <select>
+          <option value="">— Select —</option>
+          <option>Yes — in-house armed response</option>
+          <option>Yes — through a partner company (name the partner below)</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>If armed response is through a partner, name the partner company</label>
+        <input type="text" placeholder="Partner company name">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PERSONNEL & TRAINING -->
+  <div class="section" data-section="5">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">5</div>
+      <div class="section-title">Personnel &amp; Training</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Describe your guard recruitment and vetting process <span class="required">*</span></label>
+        <div class="hint">Include: police clearance, background checks, previous employment verification, reference checks, medical fitness.</div>
+        <textarea rows="4" placeholder="Detail your end-to-end screening process for new guard hires."></textarea>
+      </div>
+      <div class="field">
+        <label>Do all your guards hold individual PSRA identification cards? <span class="required">*</span></label>
+        <select>
+          <option value="">— Select —</option>
+          <option>Yes — all guards carry valid PSRA ID</option>
+          <option>Majority — registration in progress for some</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Pre-deployment training provided <span class="required">*</span></label>
+        <div class="hint">Tick all that apply.</div>
+        <div class="check-group">
+          <label><input type="checkbox"> Basic security training</label>
+          <label><input type="checkbox"> First aid &amp; fire safety</label>
+          <label><input type="checkbox"> Customer service &amp; conflict resolution</label>
+          <label><input type="checkbox"> Access control &amp; visitor management procedures</label>
+          <label><input type="checkbox"> Report writing &amp; incident documentation</label>
+          <label><input type="checkbox"> Use of communication equipment (radios)</label>
+          <label><input type="checkbox"> Emergency evacuation &amp; crisis response</label>
+          <label><input type="checkbox"> Site-specific orientation (layout, procedures, contacts)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Total duration of initial training programme <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. 2 weeks / 80 hours">
+        </div>
+        <div class="field">
+          <label>Refresher / in-service training frequency <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Monthly</option>
+            <option>Quarterly</option>
+            <option>Bi-annually</option>
+            <option>Annually</option>
+            <option>As needed</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Staff turnover rate (past 12 months) <span class="required">*</span></label>
+        <input type="text" placeholder="e.g. ~15% annually">
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PRICING -->
+  <div class="section" data-section="6">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">6</div>
+      <div class="section-title">Pricing &amp; Financial Proposal</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="estate-info-box">
+        <strong>Mandatory.</strong> Bids submitted without pricing will not be evaluated. Please provide a full cost breakdown.
+      </div>
+
+      <div class="field">
+        <label>Currency <span class="required">*</span></label>
+        <select style="max-width:200px">
+          <option>KES (Kenya Shillings)</option>
+          <option>USD (US Dollars)</option>
+        </select>
+      </div>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Line Item</th>
+            <th>Monthly Cost</th>
+            <th>Notes / Breakdown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="line-label">Manned Guarding (all guards, all shifts)</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="No. of guards × rate"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Supervisory Staff</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="No. of supervisors"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Patrol Vehicle — incl. fuel &amp; maintenance</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="Specify what is included"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Equipment &amp; Uniforms</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="Amortised monthly or one-off?"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Technology / Reporting Platform</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="If applicable"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Armed Response (if included)</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="If applicable"></td>
+          </tr>
+          <tr>
+            <td class="line-label">Relief / Standby Cover</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="If priced separately"></td>
+          </tr>
+          <tr style="background:var(--cream)">
+            <td class="line-label"><strong>TOTAL MONTHLY FEE (VAT exclusive)</strong></td>
+            <td><input type="text" placeholder="0.00" style="font-weight:700"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="line-label">VAT (if applicable)</td>
+            <td><input type="text" placeholder="0.00"></td>
+            <td><input type="text" placeholder="16% or exempt?"></td>
+          </tr>
+          <tr style="background:var(--cream)">
+            <td class="line-label"><strong>TOTAL MONTHLY FEE (VAT inclusive)</strong></td>
+            <td><input type="text" placeholder="0.00" style="font-weight:700"></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="field" style="margin-top:20px">
+        <label>Confirm what is included in the above pricing <span class="required">*</span></label>
+        <div class="check-group">
+          <label><input type="checkbox"> Guard salaries &amp; all statutory deductions (NHIF/SHA, NSSF, PAYE)</label>
+          <label><input type="checkbox"> Uniforms &amp; personal protective equipment</label>
+          <label><input type="checkbox"> Communication equipment (radios)</label>
+          <label><input type="checkbox"> Training (initial &amp; ongoing)</label>
+          <label><input type="checkbox"> Insurance (WIBA, third-party liability, fidelity guarantee)</label>
+          <label><input type="checkbox"> Patrol vehicle fuel &amp; maintenance</label>
+          <label><input type="checkbox"> Relief / standby guard cover</label>
+          <label><input type="checkbox"> Management, supervision &amp; administration overhead</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Proposed payment terms <span class="required">*</span></label>
+        <input type="text" placeholder="e.g. Monthly in arrears, NET 15 days">
+      </div>
+      <div class="field">
+        <label>Any one-off setup, mobilisation, or kitting fees? <span class="required">*</span></label>
+        <div class="hint">Detail any initial costs outside of the monthly fee. State 'Nil' if none.</div>
+        <textarea placeholder="State the amount and what it covers, or 'Nil'."></textarea>
+      </div>
+
+      <div class="field-group-label">Phase Expansion Pricing (Optional)</div>
+      <div class="field">
+        <label>Indicative cost to add additional courts (Phase 2 and beyond)</label>
+        <div class="hint">Helps us understand scalability. Provide approximate monthly cost per additional court or per guard.</div>
+        <textarea placeholder="e.g. KES X per additional guard per month, or KES X per additional court with 2 guards."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: COMPLIANCE -->
+  <div class="section" data-section="7">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">7</div>
+      <div class="section-title">Compliance, Insurance &amp; Legal</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="row">
+        <div class="field">
+          <label>Valid Tax Compliance Certificate (TCC)? <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — will attach copy</option>
+            <option>Renewal in progress</option>
+            <option>Not currently held</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>TCC Expiry Date</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Workers' Compensation / WIBA Policy <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — current (will attach)</option>
+            <option>Renewal in progress</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Third-Party / Public Liability Insurance <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — current (will attach)</option>
+            <option>Renewal in progress</option>
+            <option>No</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Fidelity Guarantee Insurance <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Yes — current (will attach)</option>
+            <option>Renewal in progress</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Insurer Name &amp; Policy Limit</label>
+          <input type="text" placeholder="e.g. Britam — KES 5M limit">
+        </div>
+      </div>
+      <div class="field">
+        <label>Full compliance with Employment Act 2007 and applicable labour regulations? <span class="required">*</span></label>
+        <select>
+          <option value="">— Select —</option>
+          <option>Yes — full compliance</option>
+          <option>Partial compliance (explain below)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Legal disputes, lawsuits, or regulatory actions in the past 3 years? <span class="required">*</span></label>
+        <textarea placeholder="If yes, provide brief details. If none, state 'None'."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: CONTRACT TERMS -->
+  <div class="section" data-section="8">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">8</div>
+      <div class="section-title">Proposed Contract Terms</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="estate-info-box">
+        <strong>Note:</strong> Final contract terms will be negotiated with the selected provider. The responses below help us understand your standard terms and identify areas requiring discussion.
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Proposed initial contract duration <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>6 months</option>
+            <option>12 months</option>
+            <option>24 months</option>
+            <option>Other (specify in notes below)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Proposed renewal mechanism <span class="required">*</span></label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Auto-renewal (rolling) unless notice given</option>
+            <option>Requires written renewal agreement</option>
+            <option>Other (specify below)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Notice period for termination by either party <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. 30 days / 60 days / 90 days">
+        </div>
+        <div class="field">
+          <label>Mobilisation / deployment lead time <span class="required">*</span></label>
+          <div class="hint">How quickly can you deploy after contract signing?</div>
+          <input type="text" placeholder="e.g. 14 days from signed contract">
+        </div>
+      </div>
+      <div class="field">
+        <label>Describe your liability terms <span class="required">*</span></label>
+        <div class="hint">What are you liable for? What are the limits? Under what circumstances would liability apply?</div>
+        <textarea rows="4" placeholder="Summarise your standard liability position. The estate management committee will review this carefully."></textarea>
+      </div>
+      <div class="field">
+        <label>Describe your transition plan if appointed <span class="required">*</span></label>
+        <div class="hint">How would you handle the handover from the incumbent provider? Include: timeline, guard induction, equipment setup, coordination with estate management.</div>
+        <textarea rows="4" placeholder="Detail your proposed transition and mobilisation plan."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: CLIENT-PROVIDED FACILITIES -->
+  <div class="section" data-section="9">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">9</div>
+      <div class="section-title">Client-Provided Facilities &amp; Requirements</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="estate-info-box">
+        <strong>What do you need from us?</strong> List all facilities, infrastructure, and support you require the estate to provide. This helps the management committee budget for any additional costs on their side.
+      </div>
+      <div class="field">
+        <label>Facilities and infrastructure required from the estate <span class="required">*</span></label>
+        <div class="check-group">
+          <label><input type="checkbox"> Guard post / room at the main gate with shelter and electrical power</label>
+          <label><input type="checkbox"> Sentry boxes or covered positions at court gates</label>
+          <label><input type="checkbox"> Adequate perimeter and road lighting</label>
+          <label><input type="checkbox"> Secure storage for equipment (radios, torches, etc.)</label>
+          <label><input type="checkbox"> Toilet facilities for guards</label>
+          <label><input type="checkbox"> Parking space for the patrol vehicle</label>
+          <label><input type="checkbox"> Power supply for charging radios / devices</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Any other infrastructure, upgrades, or support required from the estate?</label>
+        <textarea placeholder="List any additional requirements, including lighting or infrastructure deficiencies you would flag for the estate to address."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: VALUE-ADD -->
+  <div class="section" data-section="10">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">10</div>
+      <div class="section-title">Value-Added Services &amp; Differentiators</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <div class="field">
+        <label>Additional services you can offer beyond standard manned guarding</label>
+        <div class="check-group">
+          <label><input type="checkbox"> CCTV installation, monitoring &amp; surveillance</label>
+          <label><input type="checkbox"> Electric fence maintenance &amp; monitoring</label>
+          <label><input type="checkbox"> Access control systems (booms, biometrics, intercom)</label>
+          <label><input type="checkbox"> K9 (dog) patrols</label>
+          <label><input type="checkbox"> Alarm system monitoring &amp; response</label>
+          <label><input type="checkbox"> Fire safety &amp; risk assessments</label>
+          <label><input type="checkbox"> Resident vehicle sticker / tag scheme</label>
+          <label><input type="checkbox"> Visitor management system (digital or manual)</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>What sets your company apart from competitors for this contract?</label>
+        <textarea rows="4" placeholder="Tell us why Golden Gate Estate should choose your firm."></textarea>
+      </div>
+      <div class="field">
+        <label>Any other information you wish to include in your bid?</label>
+        <textarea rows="3" placeholder="Additional comments, innovations, community programmes, etc."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11: DOCUMENTS CHECKLIST -->
+  <div class="section" data-section="11">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">11</div>
+      <div class="section-title">Supporting Documents Checklist</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Tick each document you will include with your submission.</p>
+      <div class="check-group">
+        <label><input type="checkbox"> Certificate of Incorporation / Registration</label>
+        <label><input type="checkbox"> KRA PIN Certificate</label>
+        <label><input type="checkbox"> Valid Tax Compliance Certificate (TCC)</label>
+        <label><input type="checkbox"> PSRA Licence (company)</label>
+        <label><input type="checkbox"> WIBA / Workers' Compensation Policy Schedule</label>
+        <label><input type="checkbox"> Public Liability Insurance Certificate</label>
+        <label><input type="checkbox"> Fidelity Guarantee Insurance Certificate</label>
+        <label><input type="checkbox"> Company Profile / Capability Statement</label>
+        <label><input type="checkbox"> Audited Financial Statements (last 2 years)</label>
+        <label><input type="checkbox"> Reference Letters from Current or Past Clients</label>
+        <label><input type="checkbox"> Sample Guard Training Curriculum</label>
+        <label><input type="checkbox"> Sample Incident Report Template</label>
+        <label><input type="checkbox"> Sample Monthly Report Template</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECLARATION -->
+  <div class="section" data-section="12">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-number">✓</div>
+      <div class="section-title">Declaration</div>
+      <div class="section-toggle">▾</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px; color:var(--text); margin-bottom:16px; line-height:1.7;">
+        I, the undersigned, confirm that all information provided in this bid is accurate and complete to the best of my knowledge. I understand that any misrepresentation may lead to disqualification. I authorise Golden Gate Estate Management to contact the references provided and to verify any information contained herein. I confirm that the estate description, court details, and all information provided in this form will be treated as strictly confidential and will not be disclosed to any third party.
+      </p>
+      <div class="row">
+        <div class="field">
+          <label>Full Name of Authorised Signatory <span class="required">*</span></label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="field">
+          <label>Title / Position <span class="required">*</span></label>
+          <input type="text" placeholder="e.g. Managing Director">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label>Date <span class="required">*</span></label>
+          <input type="date">
+        </div>
+        <div class="field">
+          <label>Company Stamp / Seal</label>
+          <div class="upload-area">
+            <div class="icon">⬆</div>
+            Upload stamp image (optional)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-section">
+    <p class="note">
+      Please review all sections before saving. Once complete, save this form as a PDF and email it along with your supporting documents to:
+    </p>
+    <p style="font-size:16px; font-weight:700; color:var(--gold-dark); margin-bottom:2px;">felix.njenga@gmail.com</p>
+    <p style="font-size:16px; font-weight:700; color:var(--gold-dark); margin-bottom:4px;">e.liberatus@gmail.com</p>
+    <p class="note" style="margin-bottom:20px;">
+      Send to <strong>both</strong> addresses. Subject line: <strong>Security Services Bid — [Your Company Name]</strong><br>
+      Deadline for submissions: <strong style="color:var(--red);">[INSERT DATE]</strong>
+    </p>
+    <button class="btn-submit" onclick="window.print()">🖨 Save as PDF &amp; Print</button>
+  </div>
+
+</div>
+
+<div class="footer">
+  Golden Gate Estate — Security Services RFP &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; 2026
+</div>
+
+<script>
+  function toggleSection(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.section-toggle');
+    body.classList.toggle('hidden');
+    toggle.classList.toggle('collapsed');
+  }
+
+  function updateProgress() {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], input[type="date"], textarea, select');
+    let filled = 0;
+    inputs.forEach(el => {
+      if (el.tagName === 'SELECT') {
+        if (el.selectedIndex > 0) filled++;
+      } else if (el.value.trim() !== '') {
+        filled++;
+      }
+    });
+    const pct = Math.round((filled / inputs.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    const steps = document.querySelectorAll('.progress-steps span');
+    const thresholds = [5, 15, 30, 45, 60, 75, 90];
+    steps.forEach((s, i) => { s.classList.toggle('active', pct >= thresholds[i]); });
+  }
+
+  document.addEventListener('input', updateProgress);
+  document.addEventListener('change', updateProgress);
+</script>
+</body>
+</html>
